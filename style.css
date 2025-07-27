@@ -1,0 +1,249 @@
+/* IBM Plex Sans KR 웹 폰트 불러오기 (깔끔하고 모던한 폰트) */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap');
+
+/* --- 기본 & 전체 스타일 --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* 내비게이션 클릭 시 부드러운 스크롤 효과 */
+}
+
+body {
+    font-family: 'IBM Plex Sans KR', sans-serif; /* IBM Plex Sans KR 폰트로 변경 */
+    background-color: #F5F3F7; /* 연한 라벤더 배경 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 레이아웃 --- */
+header, main, footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- 헤더 & 내비게이션 --- */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #F5F3F7;
+    z-index: 1000;
+    padding-bottom: 15px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700; /* 폰트 굵기 조정 */
+    color: #8A6BBE;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav a {
+    display: inline-block; /* transform을 적용하기 위해 추가 */
+    text-decoration: none;
+    color: #6E6286;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* 기본 호버 효과: 색상 변경 및 약간 확대 */
+nav a:hover {
+    color: #8A6BBE;
+    transform: scale(1.1);
+}
+
+/* 활성화된 링크(현재 섹션) 스타일: 위로 이동 및 색상 변경 */
+nav a.active {
+    color: #8A6BBE;
+    transform: translateY(-5px);
+}
+
+/* 활성화된 링크에 호버 시, 두 효과를 모두 적용 */
+nav a.active:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+section[id] {
+    scroll-margin-top: 140px;
+}
+
+/* --- 메인 콘텐츠 & 섹션 --- */
+section {
+    padding: 60px 20px;
+    border-bottom: 1px solid #EAE7EC;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700; /* 폰트 굵기 조정 */
+    text-align: center;
+    margin-bottom: 40px; /* 제목과 상자(콘텐츠) 사이 간격 늘리기 */
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700; /* 폰트 굵기 조정 */
+    margin-bottom: 20px;
+    color: #A084CA;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* strong 태그의 기본 굵기를 조정하여 너무 튀지 않게 함 */
+strong {
+    font-weight: 500; /* Medium 굵기 */
+}
+
+/* --- 개별 섹션 스타일 --- */
+#about {
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* margin-top은 h2의 margin-bottom으로 대체하여 일관성 유지 */
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(138, 107, 190, 0.25);
+}
+
+.about-text {
+    text-align: left;
+}
+
+#about p {
+    font-size: 1.1rem;
+}
+
+/* 강점 (카드 레이아웃) */
+#strength {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+#strength h2 {
+    width: 100%;
+}
+
+/* 모든 섹션의 article(상자)에 공통 스타일 적용 */
+#strength article,
+#education article,
+#history article,
+#review article {
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 16px; /* 둥근 사각형으로 부드러운 이미지 연출 */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 부드러운 애니메이션 효과 */
+}
+
+/* 모든 섹션의 article(상자)에 공통 호버 애니메이션 추가 */
+#strength article:hover,
+#education article:hover,
+#history article:hover,
+#review article:hover {
+    transform: translateY(-5px); /* 호버 시 살짝 위로 이동 */
+    box-shadow: 0 8px 25px rgba(138, 107, 190, 0.15); /* 호버 시 보라색 그림자 강조 */
+}
+
+#strength article {
+    flex: 1;
+    min-width: 250px;
+    padding: 25px; /* 내부 여백 추가 */
+}
+
+/* 학력 & 경력 */
+#history article {
+    padding: 15px 25px;
+}
+
+#history ul {
+    list-style-position: inside;
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+#education article {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 25px;
+}
+
+#education article h3, #education article p {
+    margin-bottom: 0;
+}
+
+#education article:not(:last-child), #history article:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+#history article:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+/* 수강 후기 */
+#review article {
+    border-left: 5px solid #A084CA; /* 기존 디자인 포인트 유지 */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* 연락처 */
+#contact ul {
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#review footer {
+    text-align: right;
+    font-style: italic;
+    margin-top: 15px;
+    color: #6E6286;
+}
+
+a {
+    color: #8A6BBE;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- 푸터 --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    color: #8A819C;
+}
