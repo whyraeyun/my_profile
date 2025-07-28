@@ -247,3 +247,91 @@ footer {
     font-size: 0.9rem;
     color: #8A819C;
 }
+
+/* --- 햄버거 메뉴 --- */
+.hamburger-menu {
+    display: none; /* 평소에는 숨김 */
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #8A6BBE;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- 반응형 디자인 (모바일) --- */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px; /* 패딩 조정 */
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        margin: 0; /* 마진 제거 */
+    }
+
+    .hamburger-menu {
+        display: block;
+        position: static; /* static으로 변경하여 flexbox의 영향을 받도록 함 */
+        transform: none; /* 기존 transform 제거 */
+    }
+
+    /* 메뉴가 열렸을 때 X 모양으로 변경 */
+    .hamburger-menu.is-active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.is-active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    #main-nav {
+        display: none;
+        position: absolute;
+        top: 70px; /* 헤더 높이에 맞게 조정 */
+        left: 0;
+        width: 100%;
+        background-color: #F5F3F7;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #main-nav.is-active {
+        display: block;
+    }
+
+    #nav-ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    section[id] {
+        scroll-margin-top: 70px; /* 헤더 높이에 맞게 조정 */
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+}
